@@ -2,8 +2,11 @@
 o67lib is the base library for core functionality based on c++/qt
 
 Project: otrebor67/o67lib
+
 Authors: Otrebor <otrebor.nospam@swissonline.ch>
+
 License: LGPL v3.0
+
 GitHub:  https://github.com/otrebor67/o67lib
 
 
