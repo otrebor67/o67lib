@@ -12,7 +12,10 @@ namespace	O67
 
 //-----------------------------------------------------------------------------
 class	OCoreApplicationPrivate;
+
+
 //-----------------------------------------------------------------------------
+///	Core application base class
 class	OCoreApplication
 	: public QCoreApplication
 	, protected O67::OMutex

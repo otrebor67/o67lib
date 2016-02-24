@@ -45,6 +45,7 @@ namespace	O67
 class	OLogPrivate;
 
 //-----------------------------------------------------------------------------------
+///	The log class for all the logging functionality
 class	OLog
 {
 public:

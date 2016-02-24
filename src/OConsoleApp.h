@@ -14,6 +14,8 @@ class	OConsoleAppPrivate;
 
 
 //-----------------------------------------------------------------------------
+///	Base class for a console (non-gui) application
+///	inherits OCoreApplication. enhances the base class with a handler for posix signals
 class	OConsoleApp
 	: public OCoreApplication
 {
@@ -26,7 +28,6 @@ public:
 
 public	Q_SLOTS:
 	virtual	void	posixSignal( int SigNo );
-//	virtual	void	shutdown();
 	
 protected:
 	OConsoleApp( OConsoleAppPrivate& dd, int Argc, char** Argv );

@@ -27,6 +27,9 @@ O67::OConsoleAppPrivate::~OConsoleAppPrivate()
 //-------------------------------------------------------------------------
 //	O67::OConsoleApp	class
 //-------------------------------------------------------------------------
+///	this slot catches posix signals
+///	you need to overwrite this one in an inherited class to do something useful
+///	the default implementation just logs the signal and does nothing
 void
 O67::OConsoleApp::posixSignal( int SigNo )
 {
@@ -38,41 +41,41 @@ O67::OConsoleApp::posixSignal( int SigNo )
 
 	switch( SigNo )
 	{
-//		case	SIGHUP:		Log.debug( __FILE__, __LINE__, "Signal", "SIGHUP" );	break;
-//		case	SIGINT:		Log.debug( __FILE__, __LINE__, "Signal", "SIGINT" );	break;
-//		case	SIGQUIT:	Log.debug( __FILE__, __LINE__, "Signal", "SIGQUIT" );	break;
-//		case	SIGILL:		Log.debug( __FILE__, __LINE__, "Signal", "SIGILL" );	break;
-//		case	SIGTRAP:	Log.debug( __FILE__, __LINE__, "Signal", "SIGTRAP" );	break;
-//		case	SIGABRT:	Log.debug( __FILE__, __LINE__, "Signal", "SIGABRT" );	break;
-////		case	SIGIOT:		Log.debug( __FILE__, __LINE__, "Signal", "SIGIOT" );	break;		//	duplicate signal
-//		case	SIGBUS:		Log.debug( __FILE__, __LINE__, "Signal", "SIGBUS" );	break;
-//		case	SIGFPE:		Log.debug( __FILE__, __LINE__, "Signal", "SIGFPE" );	break;
-//		case	SIGKILL:	Log.debug( __FILE__, __LINE__, "Signal", "SIGKILL" );	break;
-//		case	SIGUSR1:	Log.debug( __FILE__, __LINE__, "Signal", "SIGUSR1" );	break;
-//		case	SIGSEGV:	Log.debug( __FILE__, __LINE__, "Signal", "SIGSEGV" );	break;
-//		case	SIGUSR2:	Log.debug( __FILE__, __LINE__, "Signal", "SIGUSR2" );	break;
-//		case	SIGPIPE:	Log.debug( __FILE__, __LINE__, "Signal", "SIGPIPE" );	break;
-//		case	SIGALRM:	Log.debug( __FILE__, __LINE__, "Signal", "SIGALRM" );	break;
-//		case	SIGTERM:	Log.debug( __FILE__, __LINE__, "Signal", "SIGTERM" );	break;
-//		case	SIGSTKFLT:	Log.debug( __FILE__, __LINE__, "Signal", "SIGSTKFLT" );	break;
-//		case	SIGCHLD:	Log.debug( __FILE__, __LINE__, "Signal", "SIGCHLD" );	break;
-//		case	SIGCONT:	Log.debug( __FILE__, __LINE__, "Signal", "SIGCONT" );	break;
-//		case	SIGSTOP:	Log.debug( __FILE__, __LINE__, "Signal", "SIGSTOP" );	break;
-//		case	SIGTSTP:	Log.debug( __FILE__, __LINE__, "Signal", "SIGTSTP" );	break;
-//		case	SIGTTIN:	Log.debug( __FILE__, __LINE__, "Signal", "SIGTTIN" );	break;
-//		case	SIGTTOU:	Log.debug( __FILE__, __LINE__, "Signal", "SIGTTOU" );	break;
-//		case	SIGURG:		Log.debug( __FILE__, __LINE__, "Signal", "SIGURG" );	break;
-//		case	SIGXCPU:	Log.debug( __FILE__, __LINE__, "Signal", "SIGXCPU" );	break;
-//		case	SIGXFSZ:	Log.debug( __FILE__, __LINE__, "Signal", "SIGXFSZ" );	break;
-//		case	SIGVTALRM:	Log.debug( __FILE__, __LINE__, "Signal", "SIGVTALRM" );	break;
-//		case	SIGPROF:	Log.debug( __FILE__, __LINE__, "Signal", "SIGPROF" );	break;
-//		case	SIGWINCH:	Log.debug( __FILE__, __LINE__, "Signal", "SIGWINCH" );	break;
-//		case	SIGPOLL:	Log.debug( __FILE__, __LINE__, "Signal", "SIGPOLL" );	break;
-////		case	SIGIO:		Log.debug( __FILE__, __LINE__, "Signal", "SIGGIO" );	break;		//	duplicate signal
-//		case	SIGPWR:		Log.debug( __FILE__, __LINE__, "Signal", "SIGPWR" );	break;
-//		case	SIGSYS:		Log.debug( __FILE__, __LINE__, "Signal", "SIGSYS" );	break;
-////		case	SIGUNUSED:	Log.debug( __FILE__, __LINE__, "Signal", "SIGUNUSED" );	break;		//	duplicate signal
-//
+		case	SIGHUP:		Log.debug( __FILE__, __LINE__, "Signal", "SIGHUP" );	break;
+		case	SIGINT:		Log.debug( __FILE__, __LINE__, "Signal", "SIGINT" );	break;
+		case	SIGQUIT:	Log.debug( __FILE__, __LINE__, "Signal", "SIGQUIT" );	break;
+		case	SIGILL:		Log.debug( __FILE__, __LINE__, "Signal", "SIGILL" );	break;
+		case	SIGTRAP:	Log.debug( __FILE__, __LINE__, "Signal", "SIGTRAP" );	break;
+		case	SIGABRT:	Log.debug( __FILE__, __LINE__, "Signal", "SIGABRT" );	break;
+//		case	SIGIOT:		Log.debug( __FILE__, __LINE__, "Signal", "SIGIOT" );	break;		//	duplicate signal
+		case	SIGBUS:		Log.debug( __FILE__, __LINE__, "Signal", "SIGBUS" );	break;
+		case	SIGFPE:		Log.debug( __FILE__, __LINE__, "Signal", "SIGFPE" );	break;
+		case	SIGKILL:	Log.debug( __FILE__, __LINE__, "Signal", "SIGKILL" );	break;
+		case	SIGUSR1:	Log.debug( __FILE__, __LINE__, "Signal", "SIGUSR1" );	break;
+		case	SIGSEGV:	Log.debug( __FILE__, __LINE__, "Signal", "SIGSEGV" );	break;
+		case	SIGUSR2:	Log.debug( __FILE__, __LINE__, "Signal", "SIGUSR2" );	break;
+		case	SIGPIPE:	Log.debug( __FILE__, __LINE__, "Signal", "SIGPIPE" );	break;
+		case	SIGALRM:	Log.debug( __FILE__, __LINE__, "Signal", "SIGALRM" );	break;
+		case	SIGTERM:	Log.debug( __FILE__, __LINE__, "Signal", "SIGTERM" );	break;
+		case	SIGSTKFLT:	Log.debug( __FILE__, __LINE__, "Signal", "SIGSTKFLT" );	break;
+		case	SIGCHLD:	Log.debug( __FILE__, __LINE__, "Signal", "SIGCHLD" );	break;
+		case	SIGCONT:	Log.debug( __FILE__, __LINE__, "Signal", "SIGCONT" );	break;
+		case	SIGSTOP:	Log.debug( __FILE__, __LINE__, "Signal", "SIGSTOP" );	break;
+		case	SIGTSTP:	Log.debug( __FILE__, __LINE__, "Signal", "SIGTSTP" );	break;
+		case	SIGTTIN:	Log.debug( __FILE__, __LINE__, "Signal", "SIGTTIN" );	break;
+		case	SIGTTOU:	Log.debug( __FILE__, __LINE__, "Signal", "SIGTTOU" );	break;
+		case	SIGURG:		Log.debug( __FILE__, __LINE__, "Signal", "SIGURG" );	break;
+		case	SIGXCPU:	Log.debug( __FILE__, __LINE__, "Signal", "SIGXCPU" );	break;
+		case	SIGXFSZ:	Log.debug( __FILE__, __LINE__, "Signal", "SIGXFSZ" );	break;
+		case	SIGVTALRM:	Log.debug( __FILE__, __LINE__, "Signal", "SIGVTALRM" );	break;
+		case	SIGPROF:	Log.debug( __FILE__, __LINE__, "Signal", "SIGPROF" );	break;
+		case	SIGWINCH:	Log.debug( __FILE__, __LINE__, "Signal", "SIGWINCH" );	break;
+		case	SIGPOLL:	Log.debug( __FILE__, __LINE__, "Signal", "SIGPOLL" );	break;
+//		case	SIGIO:		Log.debug( __FILE__, __LINE__, "Signal", "SIGGIO" );	break;		//	duplicate signal
+		case	SIGPWR:		Log.debug( __FILE__, __LINE__, "Signal", "SIGPWR" );	break;
+		case	SIGSYS:		Log.debug( __FILE__, __LINE__, "Signal", "SIGSYS" );	break;
+//		case	SIGUNUSED:	Log.debug( __FILE__, __LINE__, "Signal", "SIGUNUSED" );	break;		//	duplicate signal
+
 		default:
 			Log.debug( __FILE__, __LINE__, "Signal not known", SigNo );
 	}
@@ -94,6 +97,9 @@ O67::OConsoleApp::posixSignal( int SigNo )
 //}
 
 
+///	class constructor for a console application
+///	\param	Argc	argument count
+///	\param	Argv	null terminated array with argument strings
 O67::OConsoleApp::OConsoleApp( int Argc, char** Argv )
 	: O67::OCoreApplication( *( new O67::OConsoleAppPrivate( this ) ), Argc, Argv )
 {
@@ -144,6 +150,7 @@ O67::OConsoleApp::OConsoleApp( int Argc, char** Argv )
 }
 
 
+///	class destructor
 O67::OConsoleApp::~OConsoleApp()
 {
 	O67::OLog	Log( this, __FILE__, __LINE__, __FUNCTION__ );
