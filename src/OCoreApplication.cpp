@@ -1,6 +1,4 @@
 
-/*	$Id: O67::OCoreApplication.cpp 73 2005-12-15 22:58:19Z lrobi $	*/
-
 #include <QTimer>
 #include <OCoreApplication_p.h>
 #include <OLog.h>
