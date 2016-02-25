@@ -11,16 +11,14 @@ O67::OBPrivate::OBPrivate( OB* pParent )
 	: O67::OAPrivate( pParent )
 {
 	O67::OLog	Log( this, __FILE__, __LINE__, __FUNCTION__ );
-	Q_Q( OB );
-	QMutexLocker	Locker( q->mutex() );
+//	Q_Q( OB );
 }
 
 
 O67::OBPrivate::~OBPrivate()
 {
 	O67::OLog	Log( this, __FILE__, __LINE__, __FUNCTION__ );
-	Q_Q( OB );
-	QMutexLocker	Locker( q->mutex() );
+//	Q_Q( OB );
 }
 
 

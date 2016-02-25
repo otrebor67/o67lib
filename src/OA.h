@@ -26,15 +26,15 @@ public:
 	explicit	OA( QObject* pParent = NULL );
 	virtual		~OA();
 
+	virtual	QString		dummyA() const;
+	virtual	void		setDummyA( const QString& DummyA );
+
 public	Q_SLOTS:
 
 protected:
 	explicit	OA( OAPrivate& dd, QObject* pParent );		//	allow inheritance classes to instatiate with their on private subclass
 
 	OAPrivate* const	d_ptr;
-
-	virtual	QString		dummyA() const;
-	virtual	void		setDummyA( const QString& DummyA );
 
 protected	Q_SLOTS:
 

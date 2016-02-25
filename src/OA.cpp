@@ -11,16 +11,14 @@ O67::OAPrivate::OAPrivate( O67::OA* pParent )
 	, _DummyA()
 {
 	O67::OLog	Log( this, __FILE__, __LINE__, __FUNCTION__ );
-	Q_Q( OA );
-	QMutexLocker	Locker( q->mutex() );
+//	Q_Q( OA );
 }
 
 
 O67::OAPrivate::~OAPrivate()
 {
 	O67::OLog	Log( this, __FILE__, __LINE__, __FUNCTION__ );
-	Q_Q( OA );
-	QMutexLocker	Locker( q->mutex() );
+//	Q_Q( OA );
 }
 
 

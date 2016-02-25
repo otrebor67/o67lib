@@ -25,13 +25,13 @@ public:
 	explicit	OB( QObject* pParent = NULL );
 	virtual		~OB();
 
+	virtual	int	dummyB() const;
+	virtual	void	setDummyB( int DummyB );
+
 public	Q_SLOTS:
 	
 protected:
 	OB( OBPrivate& dd, QObject* pParent );
-
-	virtual	int	dummyB() const;
-	virtual	void	setDummyB( int DummyB );
 
 protected	Q_SLOTS:
 
