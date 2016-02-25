@@ -15,10 +15,16 @@ HEADERS		+=	\
 		OLog.h	\
 		OLog_p.h	\
 		OMutex.h	\
-		OMutex_p.h
+		OMutex_p.h	\
+		OB.h	\
+		OB_p.h	\
+		OA.h	\
+		OA_p.h
 
 SOURCES		+=	\
 		OConsoleApp.cpp	\
 		OCoreApplication.cpp	\
 		OLog.cpp	\
-		OMutex.cpp
+		OMutex.cpp	\
+		OB.cpp	\
+		OA.cpp
